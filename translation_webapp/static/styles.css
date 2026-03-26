@@ -1,0 +1,290 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #4b5563;
+  margin-bottom: 28px;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  border: none;
+  background: #e5e7eb;
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab.active {
+  background: #111827;
+  color: white;
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.card-header h2 {
+  margin: 0 0 8px;
+}
+
+.card-header p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.badge {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.dropzone {
+  margin-top: 16px;
+  border: 2px dashed #9ca3af;
+  border-radius: 18px;
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: #f9fafb;
+  cursor: pointer;
+  padding: 24px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.dropzone:hover,
+.dropzone:focus {
+  border-color: #2563eb;
+  background: #eff6ff;
+  outline: none;
+}
+
+.dropzone.dragover {
+  border-color: #111827;
+  background: #eef2ff;
+  transform: scale(1.01);
+}
+
+.dropzone-inner p {
+  margin: 0;
+}
+
+.dropzone-inner p + p {
+  margin-top: 8px;
+  color: #4b5563;
+}
+
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin: 16px 0 10px;
+  flex-wrap: wrap;
+}
+
+.selected-summary {
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px;
+}
+
+.file-list.empty {
+  margin-top: 8px;
+}
+
+.file-item,
+.empty-state {
+  background: #f3f4f6;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-meta {
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.file-size {
+  color: #6b7280;
+  font-size: 0.92rem;
+  margin-top: 4px;
+}
+
+.empty-state {
+  color: #6b7280;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0 22px;
+}
+
+button {
+  font: inherit;
+}
+
+.primary,
+.secondary,
+.ghost {
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 12px 18px;
+}
+
+.primary {
+  border: none;
+  background: #2563eb;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #111827;
+}
+
+.ghost {
+  border: 1px solid transparent;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.small {
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.primary:disabled,
+.secondary:disabled,
+.ghost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inline-message,
+.status {
+  min-height: 24px;
+  color: #374151;
+}
+
+.inline-message {
+  margin-top: 4px;
+}
+
+.inline-message.error,
+.status.error {
+  color: #b91c1c;
+}
+
+.inline-message.success,
+.status.success {
+  color: #047857;
+}
+
+.status {
+  margin-top: 18px;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 16px 56px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card-header,
+  .list-toolbar,
+  .file-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+  }
+
+  .toolbar-actions button,
+  .file-item button,
+  .primary {
+    width: 100%;
+  }
+}

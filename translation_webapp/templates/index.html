@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Translation Utility</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Translation Utility</h1>
+      <p>Convert multiple JSON language files into one CSV, or turn a translation CSV back into JSON files.</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="jsonToCsv">JSON → CSV</button>
+      <button class="tab" data-tab="csvToJson">CSV → JSON</button>
+    </div>
+
+    <section id="jsonToCsv" class="panel active">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2>Upload language JSON files</h2>
+            <p>Drag and drop one or more JSON files, or click the drop area to browse your computer.</p>
+          </div>
+          <span class="badge">Multiple files</span>
+        </div>
+
+        <div class="dropzone" id="jsonDropzone" tabindex="0" role="button" aria-label="Upload JSON files">
+          <input id="jsonFiles" type="file" accept=".json,application/json" multiple hidden />
+          <div class="dropzone-inner">
+            <p><strong>Drop JSON files here</strong></p>
+            <p>or click to browse from your computer</p>
+          </div>
+        </div>
+
+        <div class="list-toolbar">
+          <div class="selected-summary" id="jsonSelectedSummary">No files selected</div>
+          <div class="toolbar-actions">
+            <button id="jsonReplace" class="secondary" type="button">Replace files</button>
+            <button id="jsonClear" class="ghost" type="button">Clear</button>
+          </div>
+        </div>
+
+        <div id="jsonValidation" class="inline-message" aria-live="polite"></div>
+        <ul id="jsonFileList" class="file-list empty"></ul>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="preserveOrder" checked />
+          Preserve key order based on first appearance
+        </label>
+
+        <button id="jsonSubmit" class="primary">Generate CSV</button>
+      </div>
+    </section>
+
+    <section id="csvToJson" class="panel">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2>Upload translation CSV</h2>
+            <p>Drag and drop a CSV with a <code>Key</code> column and one column per language, or browse your computer.</p>
+          </div>
+          <span class="badge">Single file</span>
+        </div>
+
+        <div class="dropzone" id="csvDropzone" tabindex="0" role="button" aria-label="Upload CSV file">
+          <input id="csvFile" type="file" accept=".csv,text/csv" hidden />
+          <div class="dropzone-inner">
+            <p><strong>Drop CSV here</strong></p>
+            <p>or click to browse from your computer</p>
+          </div>
+        </div>
+
+        <div class="list-toolbar">
+          <div class="selected-summary" id="csvSelectedSummary">No file selected</div>
+          <div class="toolbar-actions">
+            <button id="csvReplace" class="secondary" type="button">Replace file</button>
+            <button id="csvClear" class="ghost" type="button">Clear</button>
+          </div>
+        </div>
+
+        <div id="csvValidation" class="inline-message" aria-live="polite"></div>
+        <ul id="csvFileList" class="file-list empty"></ul>
+
+        <button id="csvSubmit" class="primary">Generate JSON ZIP</button>
+      </div>
+    </section>
+
+    <div id="status" class="status" aria-live="polite"></div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
