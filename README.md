@@ -1,4 +1,4 @@
-# Translation Utility Web App
+# Internationalization Utility Web App
 
 ## Features
 
