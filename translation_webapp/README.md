@@ -33,15 +33,6 @@ uvicorn app:app --reload
 
 Then open `http://127.0.0.1:8000`.
 
-## Suggested next upgrades
-
-- Add a React frontend if you want component-based UI/state management
-- Add per-file validation preview before conversion
-- Support editing translations directly in the browser table
-- Persist uploaded jobs/results in a database and object storage
-- Add auth if multiple users will use this internally
-- Dockerize for deployment
-
 ## Run with Docker
 
 Build and run the app in Docker:
